@@ -1,0 +1,22 @@
+
+from selenium import webdriver
+from selenium.webdriver.common.by import By
+
+
+def test_navigation() -> None:
+    driver = webdriver.Chrome()
+
+    try:
+        driver.get("https://httpbin.qa-territory.online")
+
+        driver.find_element(By.LINK_TEXT, "HTML Form").click()
+
+        assert driver.current_url.endswith("/forms/post")
+
+        driver.back()
+
+        assert driver.current_url.rstrip("/") == (
+            "https://httpbin.qa-territory.online"
+        )
+    finally:
+        driver.quit()
