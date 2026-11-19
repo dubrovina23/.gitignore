@@ -3,7 +3,7 @@ from selenium import webdriver
 from selenium.webdriver.common.by import By
 
 
-def test_multiple_elements():
+def test_multiple_elements() -> None:
     driver = webdriver.Chrome()
 
     try:

@@ -3,7 +3,7 @@ from selenium import webdriver
 from selenium.webdriver.common.by import By
 
 
-def test_navigation():
+def test_navigation() -> None:
     driver = webdriver.Chrome()
 
     try:

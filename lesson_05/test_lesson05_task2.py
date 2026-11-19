@@ -5,7 +5,7 @@ from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 
 
-def test_form_submission():
+def test_form_submission() -> None:
     driver = webdriver.Chrome()
 
     try:
@@ -22,6 +22,8 @@ def test_form_submission():
         WebDriverWait(driver, 10).until(
             EC.title_contains("Форма отправлена")
         )
+
+        assert driver.current_url.endswith("/forms/post")
 
         assert "Екатерина" in driver.find_element(
             By.TAG_NAME, "body"
